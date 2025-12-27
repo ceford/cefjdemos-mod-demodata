@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  mod_demodata
+ *
+ * @copyright   (C) 2017 Open Source Matters, Inc. <https://www.joomla.org>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Language\Text;
+
+$app->getDocument()->getWebAssetManager()
+    ->useScript('webcomponent.core-loader')
+    ->registerAndUseScript('mod_demodata', 'mod_demodata/demodata-process.js', [], ['type' => 'module'], ['core']);
+
+Text::script('MOD_DEMODATA_COMPLETED');
+Text::script('MOD_DEMODATA_COMPLETED_INSTALL');
+Text::script('MOD_DEMODATA_COMPLETED_UNINSTALL');
+Text::script('MOD_DEMODATA_CONFIRM_START');
+Text::script('MOD_DEMODATA_ERROR_RESPONSE');
+Text::script('MOD_DEMODATA_INVALID_RESPONSE');
+Text::script('MOD_DEMODATA_ITEM_ALREADY_PROCESSED');
+?>
+<?php if ($items) : ?>
+    <ul id="demo-data-wrapper" class="list-group list-group-flush sample-data">
+        <?php foreach ($items as $i => $item) : ?>
+            <li class="list-group-item demodata-<?php echo $item->name; ?>">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="sample-data__title">
+                        <span class="sample-data__icon icon-<?php echo $item->icon; ?> me-1" aria-hidden="true"></span>
+                        <?php echo htmlspecialchars($item->title, ENT_QUOTES, 'UTF-8'); ?>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm unapply-demo-data d-<?php echo $item->is_installed ? 'block' : 'none'; ?>"
+                        data-type="<?php echo $item->name; ?>" data-steps="<?php echo $item->steps; ?>" data-action="uninstall">
+                        <span class="icon-upload" aria-hidden="true"></span> <?php echo Text::_('JLIB_INSTALLER_UNINSTALL'); ?>
+                        <span class="visually-hidden"><?php echo $item->title; ?></span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm apply-demo-data d-<?php echo $item->is_installed ? 'none' : 'block'; ?>"
+                        data-type="<?php echo $item->name; ?>" data-steps="<?php echo $item->steps; ?>" data-action="install">
+                        <span class="icon-upload" aria-hidden="true"></span> <?php echo Text::_('JLIB_INSTALLER_INSTALL'); ?>
+                        <span class="visually-hidden"><?php echo $item->title; ?></span>
+                    </button>
+                </div>
+                <p class="sample-data__desc small mt-1"><?php echo $item->description; ?></p>
+            </li>
+            <?php // Progress bar ?>
+            <li class="list-group-item demodata-progress-<?php echo $item->name; ?> d-none">
+                <div class="progress mb-3">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"></div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <a href="index.php?option=com_plugins&filter[folder]=demodata" class="btn btn-primary btn-sm manage-sample-data float-end m-3">
+        <span class="icon-tasks" aria-hidden="true"></span> <?php echo Text::_('MOD_DEMODATA_MANAGE_DEMODATA'); ?>
+    </a>
+<?php endif; ?>

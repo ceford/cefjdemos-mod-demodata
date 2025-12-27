@@ -1,0 +1,10 @@
+<changelogs>
+    <changelog>
+        <element>mod_demodata</element>
+        <type>module</type>
+        <version>0.1.0</version>
+        <addition>
+            <item>First release.</item>
+        </addition>
+    </changelog>
+</changelogs>
