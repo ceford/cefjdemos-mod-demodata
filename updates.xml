@@ -5,7 +5,7 @@
         <description>Module to show System Down Message</description>
         <element>mod_demodata</element>
         <type>module</type>
-        <version>0.1.1</version>
+        <version>0.1.2</version>
         <client>administrator</client>
         <infourl title="demodata Module">https://github.com/ceford/cefjdemos-mod-demodata/blob/main/README.md</infourl>
         <downloads>
