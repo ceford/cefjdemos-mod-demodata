@@ -5,12 +5,13 @@
         <description>Module to show System Down Message</description>
         <element>mod_demodata</element>
         <type>module</type>
-        <version>0.1.0</version>
+        <version>0.1.1</version>
         <client>administrator</client>
         <infourl title="demodata Module">https://github.com/ceford/cefjdemos-mod-demodata/blob/main/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-mod-demodata/archive/refs/heads/main.zip</downloadurl>
         </downloads>
+        <changelogurl>https://github.com/ceford/cefjdemos-mod-demodata/changelog.xml</changelogurl>
         <targetplatform name="joomla" version="[56].[012345]" />
 		<php_minimum>8.1</php_minimum>
 	</update>
