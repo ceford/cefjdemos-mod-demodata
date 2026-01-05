@@ -33,4 +33,11 @@
 			</fieldset>
 		</fields>
 	</config>
+
+	<changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-mod-demodata/refs/heads/main/changelog.xml</changelogurl>
+
+	<updateservers>
+		<!-- Note: No spaces or linebreaks allowed between the server tags -->
+		<server type="extension" priority="2" name="Demodata Module Update Site">https://raw.githubusercontent.com/ceford/cefjdemos-mod-demodata/main/updates.xml</server>
+	</updateservers>
 </extension>
