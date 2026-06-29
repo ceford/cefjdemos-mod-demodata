@@ -2,7 +2,7 @@
 <updates>
     <update>
         <name>mod_demodata</name>
-        <description>Module to show System Down Message</description>
+        <description>Module for plugins to show add or remove demonstration data</description>
         <element>mod_demodata</element>
         <type>module</type>
         <version>0.1.2</version>
